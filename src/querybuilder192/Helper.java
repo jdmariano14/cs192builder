@@ -21,4 +21,8 @@ public class Helper {
             return in;
         }
     }
+    
+    public static String enclose(String in, String enc) {
+        return in;
+    }
 }

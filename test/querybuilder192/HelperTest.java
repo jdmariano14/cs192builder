@@ -65,4 +65,14 @@ public class HelperTest {
         assertEquals(expResult, Helper.enclose(in, enc1, enc2));
     }
     
+    @Test 
+    public void testEncloseOneArgument() {
+        System.out.println("encloseOneArgument");
+        String in = "subquery";
+        String enc = "!";
+        String expResult = "!subquery!";
+        String result = Helper.enclose(in, enc);
+        assertEquals(expResult, result);
+    }
+    
 }
