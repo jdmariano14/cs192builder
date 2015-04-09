@@ -51,4 +51,18 @@ public class HelperTest {
         assertEquals(expResult, result);
     }
     
+    @Test
+    public void testEncloseAlreadyEnclosed() {
+        System.out.println("encloseAlreadyEnclosed");
+        String in = "(subquery)";
+        String enc1 = "(";
+        String enc2 = ")";
+        String expResult = "(subquery)";
+        assertEquals(expResult, Helper.enclose(in, enc1, enc2));
+        in = "subquery)";
+        assertEquals(expResult, Helper.enclose(in, enc1, enc2));
+        in = "(subquery";
+        assertEquals(expResult, Helper.enclose(in, enc1, enc2));
+    }
+    
 }
