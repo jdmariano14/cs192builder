@@ -25,11 +25,11 @@ public class Query {
     }
     
     public String getSQL() {
-        String sql = action + " " + columns + Query.DELIMITER
-                + "FROM " + from + Query.DELIMITER
-                + "WHERE " + where + Query.DELIMITER
-                + "GROUP BY " + group + Query.DELIMITER
-                + "HAVING " + having;
+        String sql = action + " " + columns + DELIMITER
+                + "FROM " + from;
+        sql += where.isEmpty() ? "" : DELIMITER + "WHERE " + where;
+        sql += group.isEmpty() ? "" : DELIMITER + "GROUP BY " + group ;
+        sql += having.isEmpty() ? "" : DELIMITER + "HAVING " + having;
         return sql;
     }
 }
