@@ -39,7 +39,8 @@ public class QueryTest {
                 "table1", 
                 "attr1 > 2", 
                 "attr1", 
-                "attr2 > 5");
+                "attr2 > 5",
+                "");
         String expResult = "SELECT attr1, COUNT(attr2)" + Query.DELIMITER
                 + "FROM table1" + Query.DELIMITER
                 + "WHERE attr1 > 2" + Query.DELIMITER
@@ -57,10 +58,28 @@ public class QueryTest {
                 "table1", 
                 "attr1 > 2", 
                 "", 
+                "",
                 "");
         String expResult = "SELECT attr1, COUNT(attr2)" + Query.DELIMITER
                 + "FROM table1" + Query.DELIMITER
                 + "WHERE attr1 > 2";
+        String result = instance.getSQL();
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testGetSQLAs() {
+        System.out.println("getSQLAs");
+        Query instance = new Query("SELECT", 
+                "attr1, COUNT(attr2)", 
+                "table1", 
+                "attr1 > 2", 
+                "", 
+                "",
+                "subquery");
+        String expResult = "(SELECT attr1, COUNT(attr2)" + Query.DELIMITER
+                + "FROM table1" + Query.DELIMITER
+                + "WHERE attr1 > 2) AS subquery";
         String result = instance.getSQL();
         assertEquals(expResult, result);
     }

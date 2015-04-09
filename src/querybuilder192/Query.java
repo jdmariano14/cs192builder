@@ -9,19 +9,22 @@ public class Query {
     String where;
     String group;
     String having;
+    String as;
     
     public Query (String action,
             String columns,
             String from,
             String where,
             String group,
-            String having) {
+            String having,
+            String as) {
         this.action = action;
         this.columns = columns;
         this.from = from;
         this.where = where;
         this.group = group;
         this.having = having;
+        this.as = as;
     }
     
     public String getSQL() {
