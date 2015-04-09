@@ -49,4 +49,20 @@ public class QueryTest {
         assertEquals(expResult, result);
     }
     
+    @Test
+    public void testGetSQLWhereOnly() {
+        System.out.println("getSQLWhereOnly");
+        Query instance = new Query("SELECT", 
+                "attr1, COUNT(attr2)", 
+                "table1", 
+                "attr1 > 2", 
+                "", 
+                "");
+        String expResult = "SELECT attr1, COUNT(attr2)" + Query.DELIMITER
+                + "FROM table1" + Query.DELIMITER
+                + "WHERE attr1 > 2";
+        String result = instance.getSQL();
+        assertEquals(expResult, result);
+    }
+    
 }
