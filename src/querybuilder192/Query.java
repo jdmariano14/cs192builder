@@ -33,6 +33,12 @@ public class Query {
         sql += where.isEmpty() ? "" : DELIMITER + "WHERE " + where;
         sql += group.isEmpty() ? "" : DELIMITER + "GROUP BY " + group ;
         sql += having.isEmpty() ? "" : DELIMITER + "HAVING " + having;
-        return sql;
+
+        if (as.isEmpty()) {
+            return sql;   
+        }
+        else {
+            return Helper.enclose(sql, "(", ")") + " AS " + as;
+        }
     }
 }
