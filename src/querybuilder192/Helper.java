@@ -23,6 +23,6 @@ public class Helper {
     }
     
     public static String enclose(String in, String enc) {
-        return in;
+        return enclose(in, enc, enc);
     }
 }
