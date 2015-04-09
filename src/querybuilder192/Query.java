@@ -1,11 +1,8 @@
 package querybuilder192;
 
-/**
- *
- * @author MARIANO, J Stephen DV
- * @studentno 2012-78002
- */
 public class Query {
+    public static String DELIMITER = System.lineSeparator();
+    
     String action;
     String columns;
     String from;
@@ -28,6 +25,11 @@ public class Query {
     }
     
     public String getSQL() {
-        return "";
+        String sql = action + " " + columns + Query.DELIMITER
+                + "FROM " + from + Query.DELIMITER
+                + "WHERE " + where + Query.DELIMITER
+                + "GROUP BY " + group + Query.DELIMITER
+                + "HAVING " + having;
+        return sql;
     }
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package querybuilder192;
 
 import org.junit.After;
@@ -12,10 +7,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author JaymNico
- */
 public class QueryTest {
     
     public QueryTest() {
@@ -49,15 +40,13 @@ public class QueryTest {
                 "attr1 > 2", 
                 "attr1", 
                 "attr2 > 5");
-        String expResult = "SELECT attr1, COUNT(attr2) "
-                + "FROM table1 "
-                + "WHERE attr1 > 2 "
-                + "GROUP BY attr1 "
+        String expResult = "SELECT attr1, COUNT(attr2)" + Query.DELIMITER
+                + "FROM table1" + Query.DELIMITER
+                + "WHERE attr1 > 2" + Query.DELIMITER
+                + "GROUP BY attr1" + Query.DELIMITER
                 + "HAVING attr2 > 5";
         String result = instance.getSQL();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
