@@ -8,6 +8,6 @@ package querybuilder192;
 public class Helper {
 
     public static String enclose(String in, String enc1, String enc2) {
-        return in;
+        return enc1 + in + enc2;
     }
 }
