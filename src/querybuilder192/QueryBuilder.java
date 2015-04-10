@@ -54,6 +54,14 @@ public class QueryBuilder {
     }
     
     public QueryBuilder naturalJoin(String table) {
+        if (!from.isEmpty()) {
+            from += Query.DELIMITER
+                    + "NATURAL JOIN "
+                    + table;
+        }
+        else {
+            from = table;
+        }
         return this;
     }
     
