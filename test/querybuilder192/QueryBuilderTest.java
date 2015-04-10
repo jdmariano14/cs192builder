@@ -42,6 +42,21 @@ public class QueryBuilderTest {
     }
     
     @Test
+    public void testSelectMore() {
+        System.out.println("select_more");
+        String columns = "column1 AS \"c1\"";
+        String columns2 = "column2 AS \"c2\"";
+        QueryBuilder instance = (new QueryBuilder()).select(columns).select(columns2);
+        String expResult = "SELECT";
+        String result = instance.action;
+        assertEquals(expResult, result);
+        expResult = "column1 AS \"c1\"," + Query.DELIMITER
+                + "column2 AS \"c2\"";
+        result = instance.columns;
+        assertEquals(expResult, result);
+    }
+    
+    @Test
     public void testFrom() {
         System.out.println("from");
         String columns = "column1";
@@ -126,7 +141,7 @@ public class QueryBuilderTest {
     
     @Test
     public void testJoinOn() {
-        System.out.println("natural_join");
+        System.out.println("join_on");
         String columns = "column1";
         String table = "table1 T1";
         String table2 = "table2 T2";
@@ -142,7 +157,7 @@ public class QueryBuilderTest {
     
     @Test
     public void testJoinUsing() {
-        System.out.println("natural_join");
+        System.out.println("join_using");
         String columns = "column1";
         String table = "table1 T1";
         String table2 = "table2 T2";
