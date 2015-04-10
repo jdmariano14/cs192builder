@@ -8,6 +8,11 @@ public class Main {
     public static void main(String[] args) {
         example1();
         example2();
+        // item1();
+        // item2();
+        // item3();
+        // item4();
+        // item5();
     }
     
     /**
@@ -31,13 +36,11 @@ public class Main {
         System.out.println("Example 1:");
         System.out.println("");
         
-        String select = "\"OrderID\",\n" +
-            "\"CompanyName\" AS \"Customer\", \n" +
-            "\"RequiredDate\" AS \"Required Date\",\n" +
-            "\"ShippedDate\" AS \"Shipped Date\"";
-        
         QueryBuilder builder = (new QueryBuilder())
-                .select(select)
+                .select("\"OrderID\"")
+                .select("\"CompanyName\" AS \"Customer\"")
+                .select("\"RequiredDate\" AS \"Required Date\"")
+                .select("\"ShippedDate\" AS \"Shipped Date\"")
                 .from("orders")
                 .naturalJoin("customers")
                 .where("\"RequiredDate\" < \"1995-06-09\" AND \"ShippedDate\" IS NULL");
@@ -76,14 +79,10 @@ public class Main {
                 .as("subquery");
         String subquery = subqueryBuilder.build().getSQL();
         
-        String sum = "SUM(OD.\"Quantity\" * (OD.\"UnitPrice\" - OD.\"UnitPrice\" * OD.\"Discount\")) AS \"TotalOrderAmount\"";
-        
-        String select = "\"CustomerID\" AS \"Customer ID\",\n" +
-                        "\"CompanyName\" AS \"Company Name\",\n" +
-                        sum;
-        
         QueryBuilder builder = (new QueryBuilder())
-                .select(select)
+                .select("\"CustomerID\" AS \"Customer ID\"")
+                .select("\"CompanyName\" AS \"Company Name\"")
+                .select("SUM(OD.\"Quantity\" * (OD.\"UnitPrice\" - OD.\"UnitPrice\" * OD.\"Discount\")) AS \"TotalOrderAmount\"")
                 .from(subquery)
                 .naturalJoin("order_details OD")
                 .naturalJoin("customers C")
