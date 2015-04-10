@@ -16,8 +16,9 @@ The Main class with the appropriate methods filled out, along with any other cla
 ```
 $ java querybuilder192.Main
 ```
+
 * Alternatively, just remove the (first) line "package querybuilder192;" from all the source files, and they will behave like typical Java classes written from scratch.
-* Oracle Java 1.8.0_40
+* Developed on Oracle Java 1.8.0_40
 
 ## Notes
 * The syntax for generating some example queries is included as a guide (below the blank item methods in the Main class).
