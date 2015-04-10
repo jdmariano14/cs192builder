@@ -19,4 +19,8 @@ public class QueryBuilder {
     public Query build() {
         return new Query(action, columns, from, where, group, having, as);
     }
+    
+    public QueryBuilder select(String columns) {
+        return this;
+    }
 }
