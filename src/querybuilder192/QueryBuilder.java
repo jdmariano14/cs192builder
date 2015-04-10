@@ -21,6 +21,8 @@ public class QueryBuilder {
     }
     
     public QueryBuilder select(String columns) {
+        action = "SELECT";
+        this.columns = columns;
         return this;
     }
 }
