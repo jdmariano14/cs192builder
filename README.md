@@ -5,7 +5,7 @@ Machine Exercise for CS 192 under Sir Edgar Felizmenio.
 A basic implementation of generating SQL queries in Java (using the Builder pattern).
 
 ## Task
-Add code to the Main class to generate the expected SQL queries for items 1-5 using the QueryBuilder class.
+Add code to the Main class to generate the expected SQL queries for items 1-5 using the included QueryBuilder class.
 
 ## Deliverables
 The Main class with the appropriate methods filled out, along with any other classes (if any) you decide to modify or extend. Send to the email specified in the FB group.
