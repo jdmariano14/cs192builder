@@ -85,7 +85,7 @@ public class QueryBuilderTest {
     
     @Test
     public void testAs() {
-        System.out.println("As");
+        System.out.println("as");
         String columns = "column1";
         String table = "table1";
         String as = "subquery";

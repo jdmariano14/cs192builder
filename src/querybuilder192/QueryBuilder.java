@@ -34,18 +34,22 @@ public class QueryBuilder {
     }
     
     public QueryBuilder where(String where) {
+        this.where = where;
         return this;
     }
     
     public QueryBuilder group(String group) {
+        this.group = group;
         return this;
     }
     
     public QueryBuilder having(String having) {
+        this.having = having;
         return this;
     }
     
     public QueryBuilder as(String as) {
+        this.as = as;
         return this;
     }
     
