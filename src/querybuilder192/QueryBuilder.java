@@ -24,8 +24,20 @@ public class QueryBuilder {
     }
     
     public QueryBuilder select(String columns) {
-        action = "SELECT";
-        this.columns = columns;
+        try { 
+            if (this.columns.isEmpty()) {
+                throw new Exception();
+            }
+            else {
+                this.columns += ",";
+                this.columns += Query.DELIMITER;
+                this.columns += columns;
+            }
+        }
+        catch (Exception e) {
+            action = "SELECT";
+            this.columns = columns;
+        }
         return this;
     }
     
