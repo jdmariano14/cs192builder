@@ -1,4 +1,5 @@
 # CS 192 ME - Builder Pattern
+Machine Exercise for CS 192 under Sir Edgar Felizmenio.
 
 ## Given
 A basic implementation of generating SQL queries in Java (using the Builder pattern).
@@ -7,7 +8,7 @@ A basic implementation of generating SQL queries in Java (using the Builder patt
 Add code to the Main class to generate the expected SQL queries for items 1-5 using the QueryBuilder class.
 
 ## Deliverables
-The Main class with the appropriate methods filled out, along with any other classes (if any) you decide to modify or extend.
+The Main class with the appropriate methods filled out, along with any other classes (if any) you decide to modify or extend. Send to the email specified in the FB group.
 
 ## Notes
 * The syntax for generating some example queries are included as a guide (below the blank item methods in the Main class).
