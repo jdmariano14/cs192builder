@@ -15,6 +15,60 @@ public class Main {
         // item5();
     }
     
+    // ****************************************
+    // Items
+    // ****************************************
+    
+    /** 
+    * [ITEM 1] No. of Shipment per Country
+    * * Output: Country, No. of Shipment (delivered orders)
+    * * Sort alphabetically by Country
+    */
+    public static void item1() {
+    }
+            
+    /**
+    * [ITEM 2] Ranking of Employees by sales for a given year
+    * * Given: year (e.g., 1995)
+    * * Output: Employee, Sales
+    * * Employee ranking must be from highest to lowest sales
+    * * Clue: You have to use SUM and ORDER BY
+    */
+    public static void item2() {
+    }
+    
+    /** 
+    * [ITEM 3] Summary of Product Sales given a date range.
+    * * Given: start date, end date
+    * * Output: Category, Product, Sales
+    * * Sort by Category; for each Category sort product sales from highest to
+    *   lowest sales
+    */
+    public static void item3() {
+    }
+    
+    /** 
+    * [ITEM 4] 
+    * No. of Products Per Category and most expensive product Per Category
+    * * Output: Category ID, Category Name, No. of Products, Product, Unit Price
+    * * Sort by Unit Price (from highest to lowest) 
+    */
+    public static void item4() {
+    }
+    
+    /**
+    * [ITEM 5] Biggest Sale per Employee
+    * * Output: Employee, Order ID, Customer, Order Amount, Order Date, Ship Date
+    * * Clue: An order is already shipped if ShippedDate is not null.
+    * * Sales = sum of unitprice * (1 - discount) * quantity per product ordered
+    */
+    public static void item5() {
+    }
+    
+    // ****************************************
+    // Examples
+    // ****************************************
+    
     /**
     * [EXAMPLE] Orders not yet shipped by given cut-off date
     * * Given: Cut-off Date (e.g., 1995-06-09)
