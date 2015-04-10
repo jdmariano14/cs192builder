@@ -83,6 +83,27 @@ public class Main {
     * No. of Products Per Category and most expensive product Per Category
     * * Output: Category ID, Category Name, No. of Products, Product, Unit Price
     * * Sort by Unit Price (from highest to lowest) 
+    * 
+    * * Expected query:
+    * * SELECT "CategoryID" AS "Category ID",
+                "CategoryName" AS "Category Name",
+                "No. of Products",
+                "ProductName" AS "Most Expensive Product",
+                "UnitPrice" AS "Unit Price"
+            FROM categories C
+            NATURAL JOIN products P
+            NATURAL JOIN (SELECT "CategoryID",
+                            COUNT("ProductID") AS "No. of Products"
+                          FROM categories C1
+                          NATURAL JOIN products P1
+                          GROUP BY("CategoryID")) AS subquery
+            GROUP BY "CategoryID", "CategoryName", "No. of Products", "ProductName", "UnitPrice"
+            HAVING "UnitPrice" =
+                (SELECT MAX("unit_price")
+                    FROM (SELECT "UnitPrice" AS "unit_price"
+                            FROM products P2
+                            WHERE P2."CategoryID" = C."CategoryID") AS innersubquery)
+            ORDER BY "UnitPrice" DESC
     */
     public static void item4() {
     }
