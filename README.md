@@ -11,7 +11,7 @@ Add code to the Main class to generate the expected SQL queries for items 1-5 us
 The Main class with the appropriate methods filled out, along with any other classes (if any) you decide to modify or extend. Send to the email specified in the FB group.
 
 ## Notes
-* The syntax for generating some example queries are included as a guide (below the blank item methods in the Main class).
+* The syntax for generating some example queries is included as a guide (below the blank item methods in the Main class).
 * The required queries for this ME were taken from a CS 165 problem set that used a version of the Northwind database (https://northwinddatabase.codeplex.com/).
 * If you're up for a challenge, the schema diagrams and SQL files are included so you can replicate the database in your DBMS and test your output there.
 * Alternatively, the "with-expected-queries" branch shows correct (albeit not necessarily elegant) queries that you can simply recreate with the builder.
