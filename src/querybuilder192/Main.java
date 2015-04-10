@@ -40,6 +40,17 @@ public class Main {
     * * Output: Employee, Sales
     * * Employee ranking must be from highest to lowest sales
     * * Clue: You have to use SUM and ORDER BY
+    * 
+    * * Expected query:
+    * * SELECT "LastName" || $$, $$ || "FirstName" AS "Name", 
+                SUM(OD."Quantity" * (OD."UnitPrice" - OD."UnitPrice" * OD."Discount")) AS "Sales"
+            FROM employees 
+            NATURAL JOIN (SELECT "OrderID", "EmployeeID"
+                FROM orders
+                WHERE EXTRACT(YEAR FROM "ShippedDate") = ?) AS O
+            NATURAL JOIN order_details OD
+            GROUP BY "FirstName", "LastName"
+            ORDER BY "Sales"
     */
     public static void item2() {
     }
