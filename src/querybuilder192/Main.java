@@ -23,6 +23,13 @@ public class Main {
     * [ITEM 1] No. of Shipment per Country
     * * Output: Country, No. of Shipment (delivered orders)
     * * Sort alphabetically by Country
+    * 
+    * * Expected query:
+    * * SELECT "ShipCountry" AS "Country",
+                COUNT("ShippedDate") AS "No. of Shipment"
+            FROM orders
+            GROUP BY "ShipCountry"
+            ORDER BY "ShipCountry" ASC
     */
     public static void item1() {
     }
