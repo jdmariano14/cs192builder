@@ -9,6 +9,7 @@ public class Query {
     String where;
     String group;
     String having;
+    String order;
     String as;
     
     public Query (String action,
@@ -17,6 +18,7 @@ public class Query {
             String where,
             String group,
             String having,
+            String order,
             String as) {
         this.action = action;
         this.columns = columns;
@@ -24,6 +26,7 @@ public class Query {
         this.where = where;
         this.group = group;
         this.having = having;
+        this.order = order;
         this.as = as;
     }
     
@@ -35,6 +38,7 @@ public class Query {
             sql += DELIMITER + "GROUP BY " + group;
             sql += having.isEmpty() ? "" : DELIMITER + "HAVING " + having;
         }
+        sql += order.isEmpty() ? "" : DELIMITER + "ORDER BY " + order;
 
         if (as.isEmpty()) {
             return sql;   

@@ -40,6 +40,7 @@ public class QueryTest {
                 "attr1 > 2", 
                 "attr1", 
                 "attr2 > 5",
+                "",
                 "");
         String expResult = "SELECT attr1, COUNT(attr2)" + Query.DELIMITER
                 + "FROM table1" + Query.DELIMITER
@@ -59,6 +60,7 @@ public class QueryTest {
                 "attr1 > 2", 
                 "", 
                 "",
+                "",
                 "");
         String expResult = "SELECT attr1, COUNT(attr2)" + Query.DELIMITER
                 + "FROM table1" + Query.DELIMITER
@@ -75,6 +77,7 @@ public class QueryTest {
                 "table1", 
                 "attr1 > 2", 
                 "", 
+                "",
                 "",
                 "subquery");
         String expResult = "(SELECT attr1, COUNT(attr2)" + Query.DELIMITER

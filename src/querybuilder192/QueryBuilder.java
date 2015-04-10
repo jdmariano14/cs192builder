@@ -12,14 +12,15 @@ public class QueryBuilder {
     String where;
     String group;
     String having;
+    String order;
     String as;
     
     public QueryBuilder() {
-        where = group = having = as = "";
+        where = group = having = order = as = "";
     }
     
     public Query build() {
-        return new Query(action, columns, from, where, group, having, as);
+        return new Query(action, columns, from, where, group, having, order, as);
     }
     
     public QueryBuilder select(String columns) {
@@ -45,6 +46,10 @@ public class QueryBuilder {
     
     public QueryBuilder having(String having) {
         this.having = having;
+        return this;
+    }
+    
+    public QueryBuilder order(String order) {
         return this;
     }
     

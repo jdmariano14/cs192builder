@@ -84,6 +84,20 @@ public class QueryBuilderTest {
     }
     
     @Test
+    public void testOrder() {
+        System.out.println("order");
+        String columns = "column1";
+        String table = "table1";
+        String order = "column1 ASC";
+        QueryBuilder instance = (new QueryBuilder()).select(columns).from(table).order(order);
+        String expResult = "SELECT column1"
+                + Query.DELIMITER + "FROM table1"
+                + Query.DELIMITER + "ORDER BY column1 ASC";
+        String result = instance.build().getSQL();
+        assertEquals(expResult, result);
+    }
+    
+    @Test
     public void testAs() {
         System.out.println("as");
         String columns = "column1";
