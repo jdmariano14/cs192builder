@@ -14,7 +14,9 @@ public class QueryBuilder {
     String having;
     String as;
     
-    public QueryBuilder() { }
+    public QueryBuilder() {
+        where = group = having = as = "";
+    }
     
     public Query build() {
         return new Query(action, columns, from, where, group, having, as);
@@ -25,4 +27,9 @@ public class QueryBuilder {
         this.columns = columns;
         return this;
     }
+    
+    public QueryBuilder from(String table) {
+        return this;
+    }
+    
 }
