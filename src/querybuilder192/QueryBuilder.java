@@ -33,4 +33,20 @@ public class QueryBuilder {
         return this;
     }
     
+    public QueryBuilder where(String where) {
+        return this;
+    }
+    
+    public QueryBuilder group(String group) {
+        return this;
+    }
+    
+    public QueryBuilder having(String having) {
+        return this;
+    }
+    
+    public QueryBuilder as(String as) {
+        return this;
+    }
+    
 }

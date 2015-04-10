@@ -53,4 +53,47 @@ public class QueryBuilderTest {
         assertEquals(expResult, result);
     }
     
+    @Test
+    public void testWhere() {
+        System.out.println("where");
+        String columns = "column1";
+        String table = "table1";
+        String where = "column2 < 69";
+        QueryBuilder instance = (new QueryBuilder()).select(columns).from(table).where(where);
+        String expResult = "SELECT column1"
+                + Query.DELIMITER + "FROM table1"
+                + Query.DELIMITER + "WHERE column2 < 69";
+        String result = instance.build().getSQL();
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testGroupHaving() {
+        System.out.println("group+having");
+        String columns = "column1";
+        String table = "table1";
+        String group = "column1";
+        String having = "column2 < 69";
+        QueryBuilder instance = (new QueryBuilder()).select(columns).from(table).group(group).having(having);
+        String expResult = "SELECT column1"
+                + Query.DELIMITER + "FROM table1"
+                + Query.DELIMITER + "GROUP BY column1"
+                + Query.DELIMITER + "HAVING column2 < 69";
+        String result = instance.build().getSQL();
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testAs() {
+        System.out.println("As");
+        String columns = "column1";
+        String table = "table1";
+        String as = "subquery";
+        QueryBuilder instance = (new QueryBuilder()).select(columns).from(table).as(as);
+        String expResult = "(SELECT column1"
+                + Query.DELIMITER + "FROM table1) AS subquery";
+        String result = instance.build().getSQL();
+        assertEquals(expResult, result);
+    }
+    
 }

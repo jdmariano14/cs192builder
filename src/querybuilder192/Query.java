@@ -31,8 +31,10 @@ public class Query {
         String sql = action + " " + columns + DELIMITER
                 + "FROM " + from;
         sql += where.isEmpty() ? "" : DELIMITER + "WHERE " + where;
-        sql += group.isEmpty() ? "" : DELIMITER + "GROUP BY " + group ;
-        sql += having.isEmpty() ? "" : DELIMITER + "HAVING " + having;
+        if (!group.isEmpty()) {
+            sql += DELIMITER + "GROUP BY " + group;
+            sql += having.isEmpty() ? "" : DELIMITER + "HAVING " + having;
+        }
 
         if (as.isEmpty()) {
             return sql;   
