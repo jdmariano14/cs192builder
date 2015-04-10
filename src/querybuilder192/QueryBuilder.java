@@ -1,10 +1,5 @@
 package querybuilder192;
 
-/**
- *
- * @author MARIANO, J Stephen DV
- * @studentno 2012-78002
- */
 public class QueryBuilder {
     String action;
     String columns;
