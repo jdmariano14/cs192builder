@@ -66,10 +66,30 @@ public class QueryBuilder {
     }
     
     public QueryBuilder joinUsing(String table, String using) {
+        if (!from.isEmpty()) {
+            from += Query.DELIMITER
+                    + "JOIN "
+                    + table
+                    + " USING "
+                    + using;
+        }
+        else {
+            from = table;
+        }
         return this;
     }
     
     public QueryBuilder joinOn(String table, String on) {
+        if (!from.isEmpty()) {
+            from += Query.DELIMITER
+                    + "JOIN "
+                    + table
+                    + " ON "
+                    + on;
+        }
+        else {
+            from = table;
+        }
         return this;
     }
     
