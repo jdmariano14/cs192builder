@@ -57,10 +57,23 @@ public class Main {
     
     /** 
     * [ITEM 3] Summary of Product Sales given a date range.
-    * * Given: start date, end date
+    * * Given: start date (e.g. 1995-01-02), end date (e.g. 1995-12-30)
     * * Output: Category, Product, Sales
     * * Sort by Category; for each Category sort product sales from highest to
     *   lowest sales
+    * 
+    * * Expected query:
+    * * SELECT "CategoryName" AS "Category",
+                "ProductName" AS "Product",
+                SUM(OD."Quantity" * (OD."UnitPrice" - OD."UnitPrice" * OD."Discount")) AS "Sales"
+            FROM (SELECT "OrderID"
+                FROM orders
+                WHERE ("ShippedDate" >= "1995-01-02" AND "ShippedDate" < "1995-12-30")) AS O
+            NATURAL JOIN order_details OD
+            NATURAL JOIN products 
+            NATURAL JOIN categories
+            GROUP BY "CategoryName", "ProductName"
+            ORDER BY "CategoryName", "Sales"
     */
     public static void item3() {
     }
