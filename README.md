@@ -13,9 +13,9 @@ The Main class with the appropriate methods filled out, along with any other cla
 ## Usage
 * Compile (javac) the files in "src/querybuilder192".
 * Go up one level (cd ..) from the directory where the compiled (.class) files are located.
-...
+```
 $ java querybuilder192.Main
-...
+```
 
 * Alternatively, just remove the line "package querybuilder192;" from all the source files, and they will behave like typical Java classes written from scratch.
 
