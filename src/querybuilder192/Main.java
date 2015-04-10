@@ -113,6 +113,27 @@ public class Main {
     * * Output: Employee, Order ID, Customer, Order Amount, Order Date, Ship Date
     * * Clue: An order is already shipped if ShippedDate is not null.
     * * Sales = sum of unitprice * (1 - discount) * quantity per product ordered
+    * 
+    * * Expected query:
+    * * SELECT "LastName" || $$, $$ || "FirstName" AS "Name",
+            "OrderID",
+            "CompanyName" AS "Customer",
+            SUM(OD."Quantity" * (OD."UnitPrice" - OD."UnitPrice" * OD."Discount")) AS "Order Amount",
+            "OrderDate" AS "Order Date",
+            "ShippedDate" AS "Shipped Date"
+        FROM orders O
+                NATURAL JOIN order_details OD
+                NATURAL JOIN employees E
+                JOIN customers C ON (C."CustomerID" = O."CustomerID")
+        GROUP BY "LastName", "FirstName", E."EmployeeID", "OrderID", "Customer", "OrderDate", "ShippedDate"
+        HAVING SUM(OD."Quantity" * (OD."UnitPrice" - OD."UnitPrice" * OD."Discount")) =
+                (SELECT MAX("order_amount")
+                        FROM (SELECT SUM(OD1."Quantity" * (OD1."UnitPrice" - OD1."UnitPrice" * OD1."Discount")) AS "order_amount"
+                                FROM orders O1
+                                        NATURAL JOIN order_details OD1
+                                GROUP BY "EmployeeID", "OrderID"
+                                HAVING (O1."EmployeeID"= E."EmployeeID")) AS innersubquery)
+        ORDER BY "Order Amount" DESC
     */
     public static void item5() {
     }
