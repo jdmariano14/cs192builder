@@ -53,4 +53,16 @@ public class QueryBuilder {
         return this;
     }
     
+    public QueryBuilder naturalJoin(String table) {
+        return this;
+    }
+    
+    public QueryBuilder joinUsing(String table, String using) {
+        return this;
+    }
+    
+    public QueryBuilder joinOn(String table, String on) {
+        return this;
+    }
+    
 }
