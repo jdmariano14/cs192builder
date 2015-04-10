@@ -50,6 +50,7 @@ public class QueryBuilder {
     }
     
     public QueryBuilder order(String order) {
+        this.order = order;
         return this;
     }
     
