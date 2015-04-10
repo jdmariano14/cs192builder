@@ -110,4 +110,36 @@ public class QueryBuilderTest {
         assertEquals(expResult, result);
     }
     
+    @Test
+    public void testJoinOn() {
+        System.out.println("natural_join");
+        String columns = "column1";
+        String table = "table1 AS t1";
+        String table2 = "table2 AS t2";
+        String on = "t1.col1 = t2.col1";
+        QueryBuilder instance = (new QueryBuilder()).select(columns).from(table).joinOn(table2, on);
+        String expResult = "SELECT column1"
+                + Query.DELIMITER + "FROM table1"
+                + Query.DELIMITER + "JOIN table2 "
+                + "ON " + on;
+        String result = instance.build().getSQL();
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testJoinUsing() {
+        System.out.println("natural_join");
+        String columns = "column1";
+        String table = "table1 AS t1";
+        String table2 = "table2 AS t2";
+        String using = "col1";
+        QueryBuilder instance = (new QueryBuilder()).select(columns).from(table).joinUsing(table2, using);
+        String expResult = "SELECT column1"
+                + Query.DELIMITER + "FROM table1"
+                + Query.DELIMITER + "JOIN table2 "
+                + "USING " + using;
+        String result = instance.build().getSQL();
+        assertEquals(expResult, result);
+    }
+    
 }
