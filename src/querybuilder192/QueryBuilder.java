@@ -29,6 +29,7 @@ public class QueryBuilder {
     }
     
     public QueryBuilder from(String table) {
+        this.from = table;
         return this;
     }
     
